@@ -1,16 +1,12 @@
-"use client";
 import { getAllInstagram } from '@/api/stripe';
 import CarouselVideo from '@/components/CarouselVideo'
 import Footer from '@/components/Footer';
 import Header from '@/components/Header'
 import Instagram from '@/components/Instagram'
-import { useEffect } from 'react'
+import axios from 'axios';
 
 
 export default function Home() {  
-  useEffect(() =>{
-    getAllInstagram();
-  },[])
 
   return (
     <main className="flex min-h-screen flex-col bg-yellow-300 p-5">
@@ -23,3 +19,4 @@ export default function Home() {
     </main>
   )
 }
+

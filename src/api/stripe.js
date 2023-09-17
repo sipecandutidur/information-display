@@ -8,11 +8,11 @@ const ENDPOINTS = {
 
 const getAllInstagram = async () => {
     try {
-        const instagram = await api.get(ENDPOINTS.INSTAGRAM)
-        console.log(ENDPOINTS.INSTAGRAM);
+        const instagram = await api.get(`${ENDPOINTS.INSTAGRAM}?populate=*`)
+        console.log(instagram.data)
         return instagram.data;
-    } catch (error){
-        throw Error(error)
+    } catch (err){
+        throw Error(err)
     }
 }
 
