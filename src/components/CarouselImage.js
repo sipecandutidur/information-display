@@ -9,7 +9,7 @@ import useSWR from 'swr'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-export default function CarouselImage({ children: autoSlide = false, autoSladeInterval = 1000 }) {
+export default function CarouselImage({ children: autoSlide = true, autoSladeInterval = 60000 }) {
     const { data, error, isLoading } = useSWR('http://localhost:1337/api/instagrams?populate=*', fetcher)
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>

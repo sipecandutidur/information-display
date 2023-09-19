@@ -40,7 +40,7 @@ export default function Instagram() {
             <Image key={index} width={200} height={200} src={`http://127.0.0.1:1337${path}`} alt={post.attributes.title} />
           );
         })} */}
-        <CarouselImage autoSlide={true} autoSladeInterval={1000} />
+        <CarouselImage autoSlide={true} autoSladeInterval={60000} />
       </div>
 
       <div className="gap-2 flex mt-20 p-3">

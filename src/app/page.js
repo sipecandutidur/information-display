@@ -1,12 +1,15 @@
-import { getAllInstagram } from '@/api/stripe';
+
 import CarouselVideo from '@/components/CarouselVideo'
 import Footer from '@/components/Footer';
 import Header from '@/components/Header'
 import Instagram from '@/components/Instagram'
-import axios from 'axios';
+import useSWR from 'swr'
 
 
-export default function Home() {  
+
+
+export default function Home() {
+
 
   return (
     <main className="flex min-h-screen flex-col bg-yellow-300 p-5">
