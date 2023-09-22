@@ -58,23 +58,23 @@ export default function CarouselVideo({ children: autoSlide = true }) {
 
 
     return (
-        <div className="w-[65%] bg-red-400 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)] relative overflow-hidden group">
+        <div className="w-full h-full bg-red-400 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)] relative overflow-hidden group">
             <div className="flex h-full transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {videos.map((post, index) => {
                     const path = post.attributes.video.data[0].attributes.url
                     {/* console.log(path) */ }
                     return (
                         <video
-                            className="object-cover aspect-video"
-                            key={index}
+                            className="object-top aspect-video"
                             src={`http://127.0.0.1:1337${path}`}
                             title={post.attributes.title}
+                            key={index}
                             autoPlay
                             muted
                             loop
                             onLoadedMetadata={(e) => {
                                 const videoDuration = e.target.duration;
-                                //console.log(videoDuration)
+                                console.log(videoDuration)
                                 setCurrentVideoDuration(videoDuration)
                             }}
                         />
@@ -98,6 +98,7 @@ export default function CarouselVideo({ children: autoSlide = true }) {
                     ))}
                 </div>
             </div>
+
 
         </div>
     )
