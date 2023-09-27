@@ -22,7 +22,7 @@ export default function Instagram() {
 
   return (
 
-    <div className="w-[35%] bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)]">
+    <div className="w-[40%] bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)]">
       <div className="flex p-3">
         <div className="w-11 h-11 ring-2 ring-[#e96443] ring-offset-1 rounded-full flex items-center justify-center  overflow-auto">
           <Image className="object-contain" width={500} height={500} src="/assets/img/perpustakaan.jpeg" alt="profile" />
@@ -33,7 +33,7 @@ export default function Instagram() {
         </div>
       </div>
 
-      <div className="w-full h-96 bg-zink-600 mt-3">
+      <div className="w-full h-56 bg-zink-600">
         {/* {data.data.map((post, index) => {
           const path = post.attributes.post.data.attributes.url
           return (
@@ -43,7 +43,7 @@ export default function Instagram() {
         <CarouselImage autoSlide={true} autoSladeInterval={60000} />
       </div>
 
-      <div className="gap-2 flex mt-20 p-3">
+      <div className="gap-2 flex p-3">
         <FontAwesomeIcon icon={faHeart} className="text-red-700 text-xl" />
         <FontAwesomeIcon icon={faComment} flip="horizontal" className="text-xl" />
         <FontAwesomeIcon icon={faPaperPlane} className="text-xl" />

@@ -1,6 +1,17 @@
 "use client"
 import Image from "next/image";
 import DateTime from "./DateTime";
+import CountMembers from "./CountMembers";
+import CountCollections from "./CountCollections";
+import Kunjungan from "./Kunjungan";
+import Pusling from "./Pusling";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faFacebook, faInstagram, faGlobe)
 
 export default function Header() {
     return (
@@ -12,17 +23,25 @@ export default function Header() {
                 <div className="w-full">
                     <h1 className="font-bold text-2xl ml-2 mt-3">Dinas Kearsipan dan Perpustakaan Kota Depok</h1>
                     <p className="ml-2">Jl.Margonda Raya No.54 Pancoranmas - Kota Depok</p>
-                    <div className="border-t-4 border-black bg-red-600 h-full mt-5">
-                        <p className="ml-2"><marquee direction="left">text Runing</marquee></p>
+                    <div className="flex gap-2 border-t-4 border-black bg-indigo-400 h-full mt-5">
+                        <div className='flex items-center gap-2 ml-5'>
+                            <FontAwesomeIcon icon={faGlobe} />
+                            <p>diskarpus.depok.go.id</p>
+                        </div>
+                        <div className='flex items-center gap-2'>
+                            <FontAwesomeIcon icon={faFacebook} />
+                            <p>Perpustakaan Kota Depok</p>
+                        </div>
+                        <div className='flex items-center gap-2'>
+                            <FontAwesomeIcon icon={faInstagram} />
+                            <p>@perpustakaanumumkotadepok</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="w-[35%] h-32 flex gap-7 ">
-                <div className="w-1/2 bg-slate-500 h-32 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)]">
-                    <p className="bg-red-400 text-white text-center font-bold text-xl w-full items-center">Jumlah Anggota</p>
-                    <p className="text-center text-4xl mt-4">123124</p>
-                </div>
-                <DateTime />
+                <Kunjungan />
+                <Pusling />
             </div>
         </div>
     )
