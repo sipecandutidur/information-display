@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import useSWR from 'swr'
+import Footer from "./Footer";
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -54,12 +55,9 @@ export default function CarouselVideo({ children: autoSlide = true }) {
     if (isLoading) return <div>loading...</div>
 
 
-
-
-
     return (
-        <div className="w-full h-full bg-red-400 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)] relative overflow-hidden group">
-            <div className="flex h-full transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div className="w-full h-fit bg-red-400 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)] relative overflow-hidden group">
+            <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {videos.map((post, index) => {
                     const path = post.attributes.video.data[0].attributes.url
                     {/* console.log(path) */ }
@@ -98,8 +96,6 @@ export default function CarouselVideo({ children: autoSlide = true }) {
                     ))}
                 </div>
             </div>
-
-
         </div>
     )
 }

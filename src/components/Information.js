@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import moment from 'moment'
 import Pusling from "./Pusling";
 import Kunjungan from "./Kunjungan";
+import Footer from "./Footer";
 
 const dateNow = moment().locale('id');
 const now = dateNow.format('YYYY-MM-DD');
@@ -26,39 +27,10 @@ export default function Information() {
     if (load || loading) {
         return <div>Loading...</div>;
     }
-
-    console.log()
     return (
-        <div className="w-[65%] h-full">
+        <div className="w-3/4 h-4/5 flex flex-col justify-stretch gap-5 ">
             <CarouselVideo />
-            <div className="flex gap-5 mt-7">
-                <Kunjungan>
-                    {kunjungan.data.length === 0 ? (
-                        <p>Tidak Ada Kunjungan</p>
-                    ) : (
-                        kunjungan.data.map((edukasi, index) => {
-                            const name = edukasi.attributes.nameSchool;
-                            return (
-
-                                <p className="text-center text-xl mt-3" key={index}>{name}</p>
-                            )
-                        })
-                    )}
-                </Kunjungan>
-                <Pusling>
-                    {keliling.data.length === 0 ? (
-                        <p>Tidak Ada Perpustakaan Keliling</p>
-                    ) : (
-                        keliling.data.map((pusling, index) => {
-                            const name = pusling.attributes.nameSchool;
-                            return (
-
-                                <p className="text-center text-xl mt-3" key={index}>{name}</p>
-                            )
-                        })
-                    )}
-                </Pusling>
-            </div>
+            <Footer />
         </div>
     )
 }
