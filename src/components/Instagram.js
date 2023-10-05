@@ -14,7 +14,7 @@ library.add(fas, faHeart, faComment, faPaperPlane, faBookmark)
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 export default function Instagram() {
 
-  const { data, error, isLoading } = useSWR('http://localhost:1337/api/instagrams?populate=*', fetcher)
+  const { data, error, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_STRIPE}/api/instagrams?populate=*`, fetcher)
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
 

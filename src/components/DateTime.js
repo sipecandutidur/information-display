@@ -35,7 +35,7 @@ export default function DateTime() {
 
     return (
         <div className=''>
-            <div className="w-48 h-40 bg-orange-700 flex flex-col items-center border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)]">
+            <div className="w-36 h-40 bg-orange-700 flex flex-col items-center border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)]">
                 <p className="bg-cyan-500 text-white text-center font-bold text-4xl w-full items-center">{localDate.format('dddd')}</p>
                 <p className="font-bold text-5xl ">{formattedTime}</p>
                 <p className="text-xl">{localDate.date()} {localDate.format('MMMM')}</p>

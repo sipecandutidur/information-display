@@ -23,15 +23,15 @@ export default function Header() {
                 <div className="w-full">
                     <h1 className="font-bold text-2xl ml-2 mt-3">Dinas Kearsipan dan Perpustakaan Kota Depok</h1>
                     <p className="ml-2">Jl.Margonda Raya No.54 Pancoranmas - Kota Depok</p>
-                    <div className="flex gap-2 border-t-4 border-black bg-indigo-400 h-full mt-5">
+                    <div className="flex gap-3 border-t-4 border-black bg-indigo-400 h-fit mt-6">
                         <div className='flex items-center gap-2 ml-5'>
                             <FontAwesomeIcon icon={faGlobe} />
-                            <p>diskarpus.depok.go.id</p>
+                            <p>diskarpus.depok.go.id | </p>
                         </div>
-                        <div className='flex items-center gap-2'>
+                        {/* <div className='flex items-center gap-2'>
                             <FontAwesomeIcon icon={faFacebook} />
-                            <p>Perpustakaan Kota Depok</p>
-                        </div>
+                            <p className="text-sm">Perpustakaan Kota Depok</p>
+                        </div> */}
                         <div className='flex items-center gap-2'>
                             <FontAwesomeIcon icon={faInstagram} />
                             <p>@perpustakaanumumkotadepok</p>

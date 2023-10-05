@@ -15,7 +15,8 @@ export default function CarouselVideo({ children: autoSlide = true }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentVideoDuration, setCurrentVideoDuration] = useState(60000);
 
-    const { data, error, isLoading } = useSWR('http://localhost:1337/api/corousels?populate=*', fetcher)
+   
+    const { data, error, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_STRIPE}/api/corousels?populate=*`, fetcher)
 
     const videos = data?.data || [];
     //console.log(Object.keys(videos))
@@ -59,12 +60,13 @@ export default function CarouselVideo({ children: autoSlide = true }) {
         <div className="w-full h-fit bg-red-400 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0)] relative overflow-hidden group">
             <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {videos.map((post, index) => {
-                    const path = post.attributes.video.data[0].attributes.url
-                    {/* console.log(path) */ }
+                    const path = post.attributes.video.data.attributes.url
+                    console.log(path) 
                     return (
                         <video
                             className="object-top aspect-video"
-                            src={`http://127.0.0.1:1337${path}`}
+                           
+                            src={`${process.env.NEXT_PUBLIC_STRIPE}${path}`}
                             title={post.attributes.title}
                             key={index}
                             autoPlay
@@ -72,7 +74,7 @@ export default function CarouselVideo({ children: autoSlide = true }) {
                             loop
                             onLoadedMetadata={(e) => {
                                 const videoDuration = e.target.duration;
-                                console.log(videoDuration)
+                                // console.log(videoDuration)
                                 setCurrentVideoDuration(videoDuration)
                             }}
                         />

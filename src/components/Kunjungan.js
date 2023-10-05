@@ -9,7 +9,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 
 export default function Kunjungan() {
-    const { data: edukasi, error: err, isLoading: load } = useSWR(`http://localhost:1337/api/events?filters[choice][$eq]=kunjungan&filters[date][$eq]=${now}`, fetcher)
+    const { data: edukasi, error: err, isLoading: load } = useSWR(`${process.env.NEXT_PUBLIC_STRIPE}/api/events?filters[choice][$eq]=kunjungan&filters[date][$eq]=${now}`, fetcher)
 
     const kunjungan = edukasi || { data: [] };
 

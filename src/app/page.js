@@ -1,4 +1,5 @@
 
+import { getAllInstagram } from '@/api/stripe';
 import CarouselVideo from '@/components/CarouselVideo'
 import CountCollections from '@/components/CountCollections';
 import CountMembers from '@/components/CountMembers';
@@ -13,10 +14,9 @@ import Instagram from '@/components/Instagram'
 
 
 export default function Home() {
-
-
   return (
-    <main className="flex h-[100vh] w-[100hv] flex-col bg-yellow-300 p-5">
+    <main className="flex h-[100vh] w-[100hv] flex-col bg-yellow-300 p-5 fixed">
+      
       <Header />
       <div className="flex flex-row gap-7 justify-between min-w-full min-h-screen mt-5">
         {/* <CarouselVideo /> */}

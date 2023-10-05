@@ -9,7 +9,7 @@ import useSWR from 'swr'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function CarouselImage({ children: autoSlide = true, autoSladeInterval = 60000 }) {
-    const { data, error, isLoading } = useSWR('http://localhost:1337/api/instagrams?populate=*', fetcher)
+    const { data, error, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_STRIPE}/api/instagrams?populate=*`, fetcher)
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
 
@@ -48,7 +48,7 @@ export default function CarouselImage({ children: autoSlide = true, autoSladeInt
                 {data.data.map((post, index) => {
                     const path = post.attributes.post.data.attributes.url
                     return (
-                        <Image key={index} width={500} height={500} src={`http://127.0.0.1:1337${path}`} alt={post.attributes.title} />
+                        <Image key={index} width={500} height={500} src={`${process.env.NEXT_PUBLIC_ASSET_URL}${path}`} alt={post.attributes.title} />
                     );
                 })}
             </div>
